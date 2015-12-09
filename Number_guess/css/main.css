@@ -1,0 +1,163 @@
+
+body {
+		
+		font-family: 'Coming Soon', cursive;
+		padding:1em;
+
+	}
+
+#top_head_wrap{
+		float:left;
+		width:100%;
+}
+
+
+#logo_wrap {
+		float:left;
+		padding-right: 10px;
+
+}
+
+#title_wrap{
+		float:left;
+		
+}
+
+#nav_bar{
+	float:right;
+}
+
+#nav_bar ul {
+		float:left;
+}
+
+#nav_bar li {
+		float:left;
+		
+}
+
+#nav_bar li a {
+		text-decoration: none;
+		color:black;
+		padding:5px;
+		margin:5px ;
+		background-color:rgba(122, 192, 230, 0.08);
+		border-radius:3px;
+}
+
+
+#sub_title_wrap {
+		width:100%;
+}
+
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
+#sub_title_wrap p {
+		text-align: center;
+		font-size: 3em;
+		font-family: 'Coming Soon', cursive;
+		margin-bottom: .25em;
+		margin-top: .25em;
+		padding-bottom: 10px;
+		padding-top: 15px;
+}
+
+#main_content {
+		width:100%;
+		margin-top: 1em;
+}
+
+#input_area {
+		width:100%;
+		text-align: center;
+		font-size: 2em;
+		
+}
+
+#input_area p{
+		padding: .5em;
+}
+
+input[type="text"]
+{
+    font-size:20px;
+}
+
+#button_1 {
+		float:left;
+}
+
+#button_2 {
+		float:left;
+}
+
+
+#secondary_buttons{
+	width:100%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#butwrap{
+	width:245px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+#number_input button{
+				  border-top: 2px solid #6C7F85;
+				  border-left: 2px solid rgba(52, 82, 90, 0.58);
+				  border-right: 2px solid rgba(0, 0, 0, 0.54);
+				  border-bottom: 2px solid rgba(0, 0, 0, 0.58);
+				  
+				  /*padding: 10px;*/
+				  margin:30px 5px 0px 5px;
+				  font-size: 14px !important;
+				  font-weight: bold;
+				  font-family: "Gloria Hallelujah";
+				  background-color:#ffe6cc;
+				  border-radius: 5px;
+}
+
+#secondary_buttons button{
+				  border-top: 2px solid #6C7F85;
+				  border-left: 2px solid rgba(52, 82, 90, 0.58);
+				  border-right: 2px solid rgba(0, 0, 0, 0.54);
+				  border-bottom: 2px solid rgba(0, 0, 0, 0.58);
+				  /*padding: 10px;*/
+				  margin:5px;
+				  font-size: 14px !important;
+				  font-weight: bold;
+				  font-family: "Gloria Hallelujah";
+				  background-color:rgba(122, 192, 230, 0.08);
+				  border-radius: 5px;
+}
+
+#button_1 {
+	float:left;
+	
+}
+#button_2 {
+	float:left;
+	
+}
+
+
+.clearfix {
+  overflow: auto;
+ 	width: 90%;
+ 	border: 1px solid #FFF;
+}
+
+
+
+
