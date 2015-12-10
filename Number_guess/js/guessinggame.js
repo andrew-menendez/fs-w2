@@ -66,29 +66,50 @@ function guessMessage(){
 	$('#gmessage').text(gmes);
 }
 
+// Repeat Guess Check
+
+function repeatCheck(){
+	console.log(playersGuessArray)
+	console.log(curGuess)
+	console.log(jQuery.inArray(curGuess,playersGuessArray.slice(0,-1)))
+
+	reps=jQuery.inArray(curGuess,playersGuessArray.slice(0,-1))
+
+	if (reps !==-1){
+		console.log("repeat guess")
+		$('#gmessage').text("You've already guessed that; try again")
+		guessLimit=(guessLimit+1)
+		$('#stats').text('Guesses: '+guessnum+"  "+"Last Guess: "+curGuess + "  Remaining: "+(guessLimit-1));
+
+	}
+}
+
+
 // Check if the Player's Guess is the winning number 
 
 function checkGuess(){
 	//console.log(curGuess,winningNumber)
-	if (curGuess==winningNumber){
-		$('#instructions').text("Winner!");
-		$('#stats').text('Guesses: '+guessnum+"  "+"Winning Guess: "+curGuess);
-		$('#gmessage').hide()
-		$('#hintmessage').hide()
-		$('#wheel').find('img').attr({"src": "img/trump.jpg","width":300})
-		return true
-	} else if (guessLimit==1){
-		$('#instructions').text("You lost");
+	guessnum=playersGuessArray.length
+
+	if (guessLimit==1){
+		$('#instructions').text("Loser!");
 		$('#stats').text('Guesses: '+guessnum+"  "+"Winning number: "+winningNumber);
 		$('#gmessage').hide()
 		$('#hintmessage').hide()
 		$('#wheel').find('img').attr({"src": "img/trump-lose.jpg","width":300})
-	}
-
-	else {
+	} else if (curGuess==winningNumber){
+	    $('#instructions').text("Winner!");
+	    $('#stats').text('Guesses: '+guessnum+"  "+"Winning Guess: "+curGuess);
+	    $('#gmessage').hide()
+	    $('#hintmessage').hide()
+	    $('#wheel').find('img').attr({"src": "img/trump.jpg","width":300})
+    	changecolors('win');
+		//return true
+	} else {
 		guessMessage();
+		repeatCheck();
 		$('#instructions').text("Try Again...");
-		return false
+		//return false
 
 	}
 
@@ -109,6 +130,7 @@ function provideHint(){
 	} else {
 		$('#hintmessage').text("it's a prime number");
 	}
+	$('#hintmessage').show()
 }
 
 // Allow the "Player" to Play Again
@@ -116,11 +138,15 @@ function provideHint(){
 function playAgain(){
 	winningNumber=generateWinningNumber(); 
 	playersGuessArray=[]
+	guessLimit=5
 	$('#hintmessage').text("");
+	$('#hintmessage').show();
 	$('#instructions').text("Enter a number");
 	$('#gmessage').text("");
+	$('#gmessage').show()
 	$('#wheel').find('img').attr({"src": "img/roulette.png","width":200})
 	$('#stats').text("");
+	changecolors('stop');
 	
 	console.log("new number is ",winningNumber)
 }
@@ -149,25 +175,68 @@ function factors(num){
     return facts
 }// End factors
 
+// font color changer for winner
+
+var c;
+
+function changecolors(val) {
+    if (val=='win'){
+    	c=1
+    	interID=setInterval(change, 1000);
+    } else if (val=='stop'){
+    	$('#instructions').css("color","black")
+
+    	if(typeof interID != 'undefined'){
+    	clearInterval(interID);
+    	};
+    }
+    
+}
+
+function change() {
+    if (c === 1) {
+        color = "red";
+        c = 2;
+    } else {
+        color = "blue";
+        c = 1;
+    }
+
+    $('#instructions').css("color",color)
+}
+
+
+function submission(){
+
+	if (guessLimit >0){
+		var playersGuess=playersGuessSubmission();
+	  	//console.log(playersGuess,winningNumber)
+	  	$('#user_number').val("");
+	  	playersGuessArray.push(playersGuess)
+
+	  	curGuess=setValue(playersGuessArray);
+	  	console.log(curGuess)
+
+	  	checkGuess();
+	  	//guessMessage();
+
+	  	guessLimit=(guessLimit-1);
+
+	  } else {
+	  	playAgain()
+	  }
+
+	  	};
+
+
+
+
 /* **** Event Listeners/Handlers ****  */
-
-
 
 
 $(document).ready(function() {
   $('#submit').on('click', function(){
-  	var playersGuess=playersGuessSubmission();
-  	//console.log(playersGuess,winningNumber)
-  	$('#user_number').val("");
-  	playersGuessArray.push(playersGuess)
-
-  	curGuess=setValue(playersGuessArray);
-  	console.log(curGuess)
-
-  	checkGuess();
-  	//guessMessage();
-
-  	guessLimit=(guessLimit-1);
+  	submission();
 
   	});
 
@@ -180,9 +249,17 @@ $('#playagain_button').on('click', function(){
 	
   });
 
+
+// keydown listener 
+$( "#user_number" ).keydown(function( event ) {
+  if ( event.which == 13 ) {
+   submission();
+  }
+
+	});
 	
+
+
+
 });
-
-
-
 
