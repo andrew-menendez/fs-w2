@@ -97,12 +97,14 @@ function checkGuess(){
 		$('#gmessage').hide()
 		$('#hintmessage').hide()
 		$('#wheel').find('img').attr({"src": "img/trump-lose.jpg","width":300})
+		$('#wheel').find('img').addClass("gameover");
 	} else if (curGuess==winningNumber){
 	    $('#instructions').text("Winner!");
 	    $('#stats').text('Guesses: '+guessnum+"  "+"Winning Guess: "+curGuess);
 	    $('#gmessage').hide()
 	    $('#hintmessage').hide()
 	    $('#wheel').find('img').attr({"src": "img/trump.jpg","width":300})
+	    $('#wheel').find('img').addClass("gameover");
     	changecolors('win');
 		//return true
 	} else {
@@ -145,6 +147,7 @@ function playAgain(){
 	$('#gmessage').text("");
 	$('#gmessage').show()
 	$('#wheel').find('img').attr({"src": "img/roulette.png","width":200})
+	$('#wheel').find('img').removeClass("gameover");
 	$('#stats').text("");
 	changecolors('stop');
 	
@@ -207,6 +210,12 @@ function change() {
 
 
 function submission(){
+
+	if($('#wheel').find('img').hasClass("gameover")){
+		playAgain();
+		$('#user_number').val("");
+		return;
+	}
 
 	if (guessLimit >0){
 		var playersGuess=playersGuessSubmission();
