@@ -56,24 +56,41 @@
 
 	<div id="input_area">
 
+
+
+	<span id="instructions">Enter a number</span>
+
+	<div id="statsdiv">
+		<span id="stats"> </span>
+	</div>
+
+	<div id="gmesdiv">
+		<span id="gmessage"> </span>
+	</div>
 		<form id="number_input">
 				
-			<p> Enter a number </p>
+			
+			<br>
 			<input type="text" id="user_number" name="Your Number" />
 			<br> 
-			<button type="button">~  Submit  ~</button>
+			<button type="button" id="submit">~  Submit  ~</button>
 
 		</form>
 
+	<div id="hintmessdiv">
+		<span id="hintmessage"> </span>
+	</div>
 		<div id="secondary_buttons">
 			<div id="butwrap">
 				<br>
 				<div id="button_1">
-					<button type="button">Spin it Again!</button>
+					<button id="hint_button" type="button">Hint please</button>
 				</div>
 
-				<div id="button_2">
-					<button type="button">Order a Pizza!</button>
+
+				<div id="button_3">
+					<button id="playagain_button" type="button">Play Again</button>
+
 				</div>
 			</div>
 
@@ -83,7 +100,8 @@
 </div>	
 
 
-
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/guessinggame.js"></script>
 
 
 </body>

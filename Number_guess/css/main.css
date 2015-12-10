@@ -89,10 +89,16 @@ input[type="text"]
 
 #button_1 {
 		float:left;
+		width: 50%
 }
-
+/*
 #button_2 {
 		float:left;
+}
+*/
+#button_3 {
+		float:left;
+		width: 50%
 }
 
 
@@ -110,6 +116,28 @@ input[type="text"]
     margin-left: auto;
     margin-right: auto;
     
+}
+
+#gmessage {
+	font-size: 18px;
+	
+	font-family: "Shadows Into Light Two";
+}
+
+#hintmessdiv{
+	margin-top: 1em;
+	font-size: 18px;
+	font-family: "Shadows Into Light Two";
+}
+
+#gmesdiv{
+	margin-top: .5em;
+}
+
+#statsdiv{
+	margin-top: 1em;
+	font-size: 18px;
+	font-family: "Shadows Into Light Two";
 }
 
 
