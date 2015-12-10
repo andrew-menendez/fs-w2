@@ -1,6 +1,6 @@
 /* **** Global Variables **** */
 // try to elminate these global variables in your project, these are here just to start.
-
+// I may need help with this concept. What's the alternative in this case?
 //var playersGuess,
 
 winningNumber=generateWinningNumber();
