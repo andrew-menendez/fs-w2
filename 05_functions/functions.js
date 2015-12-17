@@ -45,6 +45,9 @@ var makeAdder= function(num){
 // will only run once, no matter how many times it's called
 // test 5
 //num=0
+
+// look into our solution, this is a hacky solution. We we are looking for you to use a 
+// closure.  Review my solution and David's solution video, let me know if you have questions
 var once= function(func) {
     func()
     //func.run=1
@@ -76,7 +79,8 @@ var once= function(func) {
 // Shared contexts; tests 6, 7
 
 var createObjectWithTwoClosures = function(){
-    
+    // these are global variables, it is not a closure, right idea though
+    // use the var keyword, and now it's a closure (in this example!).
     sharedO={}
     val=0
     sharedO.oneIncrementer = function(){
